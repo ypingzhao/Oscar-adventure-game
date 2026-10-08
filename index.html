@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Oscar 冒险记</title>
+<link rel="stylesheet" href="src/style.css">
+</head>
+<body>
+<main id="游戏">
+
+  <header id="顶栏">
+    <h1 id="场景标题">Oscar 冒险记</h1>
+    <button id="重开" type="button" title="清空存档，从头开始">重新开始</button>
+  </header>
+
+  <section id="正文"></section>
+
+  <ul id="选项"></ul>
+
+  <footer id="背包栏">
+    <span id="背包标签">背包：</span>
+    <span id="背包内容">空的</span>
+  </footer>
+
+</main>
+
+<!-- 数据层：先物品、再场景，最后才是逻辑。改内容只动 data/ 下的两个文件。 -->
+<script src="data/items.js"></script>
+<script src="data/scenes.js"></script>
+<script src="src/main.js"></script>
+</body>
+</html>

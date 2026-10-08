@@ -1,0 +1,162 @@
+/* Oscar 冒险记 —— 单文件样式。
+   配色走暗色底 + 暖色文字，配雨天题材。改主色只动 :root 里的变量。 */
+
+:root {
+  --底色:      #14161c;
+  --卡片底:    #1c1f27;
+  --边框:      #2c3040;
+  --正文色:    #d7dae3;
+  --弱化色:    #8a90a3;
+  --强调色:    #e0a54a;
+  --强调悬停:  #f2bd67;
+  --正文行高:  1.85;
+  --圆角:      10px;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+}
+
+body {
+  background: var(--底色);
+  color: var(--正文色);
+  font-family: "Noto Serif SC", "Source Han Serif SC", "Songti SC",
+               Georgia, "Microsoft YaHei", serif;
+  font-size: 17px;
+  line-height: var(--正文行高);
+  display: flex;
+  justify-content: center;
+  padding: 32px 16px 64px;
+}
+
+#游戏 {
+  width: 100%;
+  max-width: 680px;
+}
+
+/* ---------- 顶栏 ---------- */
+
+#顶栏 {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  border-bottom: 1px solid var(--边框);
+  padding-bottom: 12px;
+  margin-bottom: 28px;
+}
+
+#场景标题 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  margin: 0;
+  color: var(--强调色);
+}
+
+#重开 {
+  flex: none;
+  background: none;
+  border: 1px solid var(--边框);
+  color: var(--弱化色);
+  font: inherit;
+  font-size: 0.78rem;
+  padding: 4px 12px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: color .15s, border-color .15s;
+}
+
+#重开:hover {
+  color: var(--强调色);
+  border-color: var(--强调色);
+}
+
+/* ---------- 正文 ---------- */
+
+#正文 p {
+  margin: 0 0 1.1em;
+  text-indent: 2em;
+}
+
+#正文 p:last-child {
+  margin-bottom: 0;
+}
+
+/* ---------- 选项 ---------- */
+
+#选项 {
+  list-style: none;
+  margin: 28px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#选项 li { margin: 0; }
+
+#选项 button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: var(--卡片底);
+  border: 1px solid var(--边框);
+  border-radius: var(--圆角);
+  color: var(--正文色);
+  font: inherit;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  padding: 13px 18px;
+  cursor: pointer;
+  transition: background .15s, border-color .15s, color .15s, transform .1s;
+}
+
+#选项 button:hover:not(:disabled) {
+  background: #232733;
+  border-color: var(--强调色);
+  color: var(--强调悬停);
+}
+
+#选项 button:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+/* 条件不满足的选项：留着可见，但点不动。
+   这样玩家知道「这里还有别的路」，而不是被悄悄藏掉。 */
+#选项 button:disabled {
+  opacity: 0.42;
+  cursor: not-allowed;
+  border-style: dashed;
+}
+
+#选项 button .缺什么 {
+  display: block;
+  font-size: 0.78rem;
+  color: var(--弱化色);
+  margin-top: 3px;
+}
+
+/* ---------- 背包 ---------- */
+
+#背包栏 {
+  margin-top: 32px;
+  padding-top: 14px;
+  border-top: 1px solid var(--边框);
+  font-size: 0.82rem;
+  color: var(--弱化色);
+}
+
+#背包标签 { color: var(--强调色); }
+
+/* ---------- 窄屏 ---------- */
+
+@media (max-width: 520px) {
+  body { font-size: 16px; padding: 20px 14px 48px; }
+  #场景标题 { font-size: 1.02rem; }
+  #选项 button { padding: 12px 14px; }
+}
