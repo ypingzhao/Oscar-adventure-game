@@ -27,6 +27,9 @@ data/items.js       ★ 物品表
 assets/images/      图片（现在空着）
 assets/audio/       音频（现在空着）
 docs/剧情结构.md     故事走向图，改剧情前先看这个
+docs/游戏设计方案_v3.md  现行游戏设计方案（单份自洽）
+archive/            旧版设计方案归档，仅作留档
+CHANGELOG.md        版本变更记录
 ```
 
 带 ★ 的两个文件是**内容**，其余是**引擎**。改故事基本只动那两处。
